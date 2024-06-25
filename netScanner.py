@@ -3,7 +3,7 @@ import optparse
 
 def getUserInput():
     parseObject = optparse.OptionParser()
-    parseObject.add_option("-i", "--ip", dest="ipAddress", help="IP address to scan")
+    parseObject.add_option("-t", "--target", dest="ipAddress", help="target IP address to scan")
     return parseObject.parse_args()
 
 def scanNetwork(ipAddress):
