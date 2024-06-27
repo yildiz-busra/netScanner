@@ -10,12 +10,13 @@ def scanNetwork(ipAddress):
 
     arpRequestPacket = scapy.ARP(pdst=ipAddress)
     broadcastPacket = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")
-    combined = arpRequestPacket/broadcastPacket
+    combined = broadcastPacket/arpRequestPacket
     (answered, unanswered) = scapy.srp(combined, timeout=1)
     answered.summary()
 
+print("\n------NET SCANNER-----\n")
 (userInput, arguments) = getUserInput()
 if not userInput:
-    print("Enter IP address")
+    print("\nEnter IP address")
 scanNetwork(userInput.ipAddress)
 
